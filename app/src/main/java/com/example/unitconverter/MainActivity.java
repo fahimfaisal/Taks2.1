@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
-
+        emptyTextView();
         Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
 
     }
