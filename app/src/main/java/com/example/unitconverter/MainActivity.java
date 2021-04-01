@@ -15,6 +15,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.digidemic.unitof.UnitOf;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.security.PublicKey;
 
 public class MainActivity extends AppCompatActivity implements  AdapterView.OnItemSelectedListener {
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
 
         else
         {
-
+            emptyTextView();
             view1.setText("error");
         }
 
@@ -139,14 +142,22 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
 
         if (text.equals(spinner.getItemAtPosition(0).toString())) {
 
-
-            view1.setText(mtocm.toString());
-            view2.setText(mtofeet.toString());
+            view1.setText(mtofeet.toString());
+            Double ola= round(mtofeet,2);
+            view2.setText(ola.toString());
             view3.setText(ktoi.toString());
         } else {
             view1.setText("error");
         }
 
+    }
+
+    private static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+        BigDecimal bd;
+        bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 }
 
