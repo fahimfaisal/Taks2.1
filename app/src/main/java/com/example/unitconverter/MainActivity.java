@@ -11,9 +11,10 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.digidemic.unitof.S;
 import com.digidemic.unitof.UnitOf;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+
 
 
 public class MainActivity extends AppCompatActivity implements  AdapterView.OnItemSelectedListener {
@@ -62,15 +63,6 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
 
     }
 
-    private double round(double value, int places)
-    {
-
-        BigDecimal bd;
-        bd = BigDecimal.valueOf(value);
-        bd = bd.setScale(places, RoundingMode.HALF_UP);
-        return bd.doubleValue();
-    }
-
 
     public void ConvertTemp(View view)
     {
@@ -92,12 +84,12 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
 
                 Double input = Double.parseDouble(edit.getText().toString());
 
-                Double ctof = round(new UnitOf.Temperature().fromCelsius(input).toFahrenheit(),2);
-                Double ctok = round( new UnitOf.Temperature().fromCelsius(input).toKelvin(),2);
+                Double ctof = new UnitOf.Temperature().fromCelsius(input).toFahrenheit();
+                Double ctok =  new UnitOf.Temperature().fromCelsius(input).toKelvin();
 
 
-                view1.setText(ctof.toString() + " Fahrenheit");
-                view2.setText(ctok.toString() + " Kelvin");
+                view1.setText(String.format("%.2f",ctof).toString() + " Fahrenheit");
+                view2.setText(String.format("%.2f",ctok).toString() + " Kelvin");
                 view3.setText("");
             }
             else
@@ -132,13 +124,13 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
 
                 Double input = Double.parseDouble(edit.getText().toString());
 
-                Double ktog = round(new UnitOf.Mass().fromKilograms(input).toGrams(),2);
-                Double ktoo = round(new UnitOf.Mass().fromKilograms(input).toOuncesUS(),2);
-                Double ktop = round(new UnitOf.Mass().fromKilograms(input).toPounds(),2);
+                Double ktog = new UnitOf.Mass().fromKilograms(input).toGrams();
+                Double ktoo = new UnitOf.Mass().fromKilograms(input).toOuncesUS();
+                Double ktop = new UnitOf.Mass().fromKilograms(input).toPounds();
 
-                view1.setText(ktog.toString() + " Gram");
-                view2.setText(ktoo.toString() + " Ounce(Oz)");
-                view3.setText(ktop.toString() + " Pound(lb)");
+                view1.setText(String.format("%.2f",ktog).toString() + " Gram");
+                view2.setText(String.format("%.2f",ktoo).toString() + " Ounce(Oz)");
+                view3.setText(String.format("%.2f", ktop).toString() + " Pound(lb)");
             }
             else
             {
@@ -169,14 +161,14 @@ public class MainActivity extends AppCompatActivity implements  AdapterView.OnIt
 
                 Double input = Double.parseDouble(edit.getText().toString());
 
-                Double mtocm = round(new UnitOf.Length().fromMeters(input).toCentimeters(),2);
-                Double mtofeet =round(new UnitOf.Length().fromMeters(input).toFeet(),2);
-                Double mtoi = round(new UnitOf.Length().fromMeters(input).toInches(), 2);
+                Double mtocm = new UnitOf.Length().fromMeters(input).toCentimeters();
+                Double mtofeet =new UnitOf.Length().fromMeters(input).toFeet();
+                Double mtoi = new UnitOf.Length().fromMeters(input).toInches();
 
 
-                view1.setText(mtocm.toString() + " Centimetre");
-                view2.setText(mtofeet.toString() + " Feet");
-                view3.setText(mtoi.toString() + " Inch");
+                view1.setText(String.format("%.2f",mtocm).toString() + " Centimetre");
+                view2.setText(String.format("%.2f",mtofeet).toString() + " Feet");
+                view3.setText(String.format("%.2f", mtoi).toString() + " Inch");
             }
             else
             {
