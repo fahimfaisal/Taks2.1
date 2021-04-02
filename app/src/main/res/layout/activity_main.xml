@@ -9,44 +9,7 @@
 
 
 
-<!--
-
-
-
--->
-
-
-
-
-    <!--<Spinner
-        android:id="@+id/spinner"
-        android:layout_width="162dp"
-        android:layout_height="60dp"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="208dp" />
-
-
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="151dp"
-        android:layout_height="82dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        />
-
-
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="86dp"
-        android:layout_height="47dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="441dp" />-->
-
-
+<!--Layout of the spinner and Text Box-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -76,20 +39,20 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
             android:background="@color/white"
             android:ems="10"
             android:inputType="numberDecimal"
-            android:text="Name"
+            android:hint="@string/placeholder"
             android:textSize="20sp"
 
             />
 
-
     </LinearLayout>
 
+<!--    Layout of the TextViews-->
 
     <LinearLayout
         android:id="@+id/textview"
@@ -142,6 +105,12 @@
 
 
     </LinearLayout>
+
+
+
+
+<!--    Layout of the Buttons-->
+
 
     <LinearLayout
         android:layout_width="match_parent"
